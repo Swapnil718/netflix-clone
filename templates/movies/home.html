@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Browse - Netflix Clone{% endblock %}
+{% block content %}
+  {% for label, items in rows.items %}
+    <section class="max-w-7xl mx-auto mb-8">
+      <h2 class="text-xl font-semibold mb-3">{{ label }}</h2>
+      <div class="row flex gap-3 overflow-x-auto snap-x">
+        {% for m in items %}
+          <a href="{% url 'movie_detail' m.id %}" class="shrink-0 snap-start">
+            <img class="h-40 rounded hover:scale-105 transition"
+                 src="https://image.tmdb.org/t/p/w300{{ m.poster_path }}" alt="{{ m.title }}"/>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+{% endblock %}

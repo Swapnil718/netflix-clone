@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Search - Netflix Clone{% endblock %}
+{% block content %}
+<div class="max-w-6xl mx-auto px-6">
+  <h2 class="text-xl mb-4">Search results for "{{ q }}"</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+    {% for m in results %}
+      <a href="{% url 'movie_detail' m.id %}">
+        <img class="rounded hover:opacity-80"
+             src="https://image.tmdb.org/t/p/w300{{ m.poster_path }}" alt="{{ m.title }}">
+      </a>
+    {% empty %}
+      <p class="text-gray-400">No results.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

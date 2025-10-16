@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}Netflix Clone{% endblock %}</title>
+  <!-- Tailwind via CDN (simple for dev) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .row::-webkit-scrollbar{display:none}
+    .row{scrollbar-width:none}
+  </style>
+</head>
+<body class="bg-black text-white">
+  <!-- Top Nav -->
+  <header class="fixed w-full z-30 bg-gradient-to-b from-black/70 to-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="/" class="text-2xl font-black tracking-wide">N</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="/" class="hover:text-gray-300">Home</a>
+        <a href="{% url 'search' %}" class="hover:text-gray-300">Search</a>
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'profiles' %}" class="hover:text-gray-300">Profiles</a>
+          <a href="{% url 'logout' %}" class="hover:text-gray-300">Logout</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="hover:text-gray-300">Login</a>
+        {% endif %}
+      </nav>
+      <form action="{% url 'search' %}" class="ml-4">
+        <input name="q" placeholder="Search" class="bg-neutral-800 rounded px-3 py-1 text-sm"/>
+      </form>
+    </div>
+  </header>
+
+  <main class="pt-24 min-h-screen">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="text-center text-xs text-gray-400 py-10">
+    Educational clone • Data from TMDB
+  </footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# VS Code / Editor
+.vscode/
+.idea/
+
+# Django local database
+db.sqlite3
+
+# Environment variables
+.env
+
+# Static files (collected after deploy)
+staticfiles/
+
+# Logs & cache
+*.log
+*.pot
+*.pyc
+.DS_Store
+
+# Other
+media/
