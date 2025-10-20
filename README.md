@@ -4,6 +4,12 @@ A portfolio-ready, Netflix-style web app built with Django, Tailwind CSS, and th
 
 Educational project — metadata/posters provided by TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.
 
+--- 
+## 🚀 Live Demo
+👉 https://web-production-81913.up.railway.app/
+- Sign up: https://web-production-81913.up.railway.app/accounts/signup/
+
+---
 ## 📸 Screenshots
 Add images (or GIFs) to help reviewers:
 
