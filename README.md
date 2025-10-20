@@ -18,13 +18,6 @@ screenshot-home
 screenshot-selected movie
 <img width="1907" height="934" alt="image" src="https://github.com/user-attachments/assets/75fa6f7b-ef60-4c85-8ed3-3665d744c698" />
 
-Example in README:
-
-![Home](assets/screenshot-home.png)
-
-
-![Profiles](assets/screenshot-profiles.png)
-
 --
 ## ✨ Features
 
@@ -109,6 +102,7 @@ netflix_clone/
 ---
 ## 🚀 Getting Started
 
+1)
 Python 3.10+
 
 (Optional) Node.js if you later switch from Tailwind CDN to a build.
