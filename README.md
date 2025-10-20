@@ -1,9 +1,29 @@
-## Netflix Clone (Django + Tailwind + TMDB)
+## Netflix Clone (HTML+ Django + Tailwind + TMDB)
 
 A portfolio-ready, Netflix-style web app built with Django, Tailwind CSS, and the TMDB API. It supports multi-profile accounts, browse rows (Trending/Top Rated/Genres), search, movie detail, trailers, My List, and Continue Watching.
 
-Educational project — metadata/posters provided by TMDB
-. This product uses the TMDB API but is not endorsed or certified by TMDB.
+Educational project — metadata/posters provided by TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.
+
+## 📸 Screenshots
+Add images (or GIFs) to help reviewers:
+
+screenshot-Sign up
+<img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/1edd0a0a-fade-45fc-9088-81c9ea56caf8" />
+screenshot-login
+<img width="1915" height="932" alt="image" src="https://github.com/user-attachments/assets/bb9894fb-1967-4500-b6bd-53034bcace79" />
+screenshot-profiles
+<img width="1919" height="848" alt="image" src="https://github.com/user-attachments/assets/8f344247-fd26-4e65-b3b7-aaf3bad64f08" />
+screenshot-home
+<img width="1915" height="995" alt="image" src="https://github.com/user-attachments/assets/722c2b49-cd0b-4ab3-b54e-4bd5c6c15be5" />
+screenshot-selected movie
+<img width="1907" height="934" alt="image" src="https://github.com/user-attachments/assets/75fa6f7b-ef60-4c85-8ed3-3665d744c698" />
+
+Example in README:
+
+![Home](assets/screenshot-home.png)
+
+
+![Profiles](assets/screenshot-profiles.png)
 
 --
 ## ✨ Features
@@ -23,46 +43,71 @@ Continue Watching: Tracks partial viewing and shows a prioritized row on Home.
 Responsive UI: Clean dark theme with HTML.
 
 ---
-🧱 Tech Stack
+## 🧱 Tech Stack
 
 Backend: Django 5, SQLite (dev)
 
-Frontend: Django templates, Tailwind CSS (CDN for dev)
+Frontend: HTML Django templates, Tailwind CSS (CDN for dev)
 
 Data: TMDB REST API (v3), YouTube trailers (redirect)
 
 Python deps: django, requests, python-dotenv
 
-📂 Project Structure
+---
+## 📂 Project Structure
 netflix_clone/
 ├─ core/
-│  ├─ settings.py
-│  └─ urls.py
-├─ movies/
-│  ├─ models.py      # Movie, Profile, Watch
-│  ├─ views.py       # home/search/detail/toggle_list/watch/mark_finished
-│  ├─ tmdb.py        # TMDB helpers: get_rows/search/detail
-│  └─ urls.py
-├─ accounts/
-│  ├─ views.py       # login/signup/logout/profile select/create/use
-│  └─ urls.py
-├─ templates/
-│  ├─ base.html
-│  ├─ movies/
-│  │  ├─ home.html
-│  │  ├─ detail.html
-│  │  └─ search.html
-│  └─ accounts/
-│     ├─ login.html
-│     ├─ signup.html
-│     ├─ profiles.html
-│     └─ profile_create.html
-├─ static/
-├─ manage.py
-└─ .env              # your secrets (not committed)
 
-🚀 Getting Started
-1) Prereqs
+│  ├─ settings.py
+
+│  └─ urls.py
+
+├─ movies/
+
+│  ├─ models.py      # Movie, Profile, Watch
+
+│  ├─ views.py       # home/search/detail/toggle_list/watch/mark_finished
+
+│  ├─ tmdb.py        # TMDB helpers: get_rows/search/detail
+
+│  └─ urls.py
+
+├─ accounts/
+
+│  ├─ views.py       # login/signup/logout/profile select/create/use
+
+│  └─ urls.py
+
+├─ templates/
+
+│  ├─ base.html
+
+│  ├─ movies/
+
+│  │  ├─ home.html
+
+│  │  ├─ detail.html
+
+│  │  └─ search.html
+
+│  └─ accounts/
+
+│     ├─ login.html
+
+│     ├─ signup.html
+
+│     ├─ profiles.html
+
+│     └─ profile_create.html
+
+├─ static/
+
+├─ manage.py
+
+└─ .env  
+
+---
+## 🚀 Getting Started
 
 Python 3.10+
 
@@ -80,13 +125,11 @@ python -m venv .venv
 . .venv\Scripts\Activate.ps1
 pip install -r requirements.txt  # or: pip install django requests python-dotenv
 
-
 macOS/Linux:
 
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt  # or: pip install django requests python-dotenv
-
 
 If you don’t have a requirements.txt, create one:
 
@@ -97,12 +140,10 @@ python-dotenv
 4) Environment Variables
 
 Create .env in the project root (same level as manage.py):
-
 DEBUG=True
 SECRET_KEY=dev-secret-change-me
 TMDB_API_KEY=YOUR_TMDB_V3_API_KEY
 ALLOWED_HOSTS=127.0.0.1,localhost
-
 
 Get a free TMDB v3 API key:
 TMDB → Settings → API → request a Developer key → copy API Key (v3 auth).
@@ -111,7 +152,6 @@ TMDB → Settings → API → request a Developer key → copy API Key (v3 auth)
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
-
 
 Open: http://127.0.0.1:8000
 
@@ -127,7 +167,8 @@ Play Trailer (YouTube) or + My List
 
 Use the header Search box
 
-🧠 Core Models (simplified)
+---
+## 🧠 Core Models (simplified)
 
 Movie: tmdb_id, title, overview, poster_path, backdrop_path, trailer_youtube_key
 
@@ -137,7 +178,8 @@ Watch: profile, movie, seconds, finished, updated_at
 
 Drives the Continue Watching row (unfinished, most recent first)
 
-🔌 TMDB Integration
+---
+## 🔌 TMDB Integration
 
 Home rows: trending/top-rated/genres from TMDB endpoints
 
@@ -147,7 +189,9 @@ Detail: GET /movie/{id}?append_to_response=videos (to extract YouTube trailer ke
 
 Images: Posters/backdrops via TMDB CDN (e.g., https://image.tmdb.org/t/p/w300...)
 
-🧭 Key Views & Routes
+---
+
+## 🧭 Key Views & Routes
 
 / → Home (rows + optional My List and Continue Watching at top)
 
@@ -163,19 +207,7 @@ Images: Posters/backdrops via TMDB CDN (e.g., https://image.tmdb.org/t/p/w300...
 
 /accounts/login|signup|logout|profiles|profiles/create|profiles/use/<id>/
 
-🛠️ Development Notes
-
-Tailwind: Using CDN in base.html for simplicity. Swap to a build when deploying.
-
-Settings: .env loaded via python-dotenv.
-
-Auth: Django’s built-in auth; email used as username for simplicity.
-
-Profiles: Active profile stored in session to scope My List & Watch state.
-
-Continue Watching: Created/updated on “Play Trailer”. You can wire to a real player later.
-
-🧩 Troubleshooting
+## 🧩 Troubleshooting
 
 No rows on home → Check .env has valid TMDB_API_KEY; restart server.
 
@@ -185,39 +217,10 @@ Profile loop → After signup, go to Profiles and click a profile to set it acti
 
 favicon 404 → Add a tiny icon at static/favicon.ico and link it in base.html.
 
-🗺️ Roadmap (nice-to-haves)
-
-Proper Tailwind build (PostCSS/Vite) + component library
-
-Real video player + playback position
-
-Pagination & infinite scroll
-
-Postgres + Docker + deployment (Render/Fly/Heroku)
-
-Unit tests for views/models (pytest + coverage)
-
-🤝 Acknowledgments
+---
+## 🤝 Acknowledgments
 
 TMDB for movie data and images.
 
 YouTube for trailer playback.
 
-📜 License
-
-MIT — see LICENSE (add one if this is public).
-
-📸 Screenshots (placeholders)
-
-Add images (or GIFs) to help reviewers:
-
-/assets/screenshot-home.png
-/assets/screenshot-detail.png
-/assets/screenshot-profiles.png
-
-
-Example in README:
-
-![Home](assets/screenshot-home.png)
-![Detail](assets/screenshot-detail.png)
-![Profiles](assets/screenshot-profiles.png)
